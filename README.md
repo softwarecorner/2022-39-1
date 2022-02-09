@@ -107,7 +107,7 @@ model %>% predict_classes(x_test)
 
 We recently used Keras to model time series corresponding to daily measurements of groundwater levels as a function of rain and other climate variables. As a simple example, the following figure shows the observed groundwater levels in blue, along with rainfall measurements in turquoise. The split of the data into training, validation and testing segments can be seen. The orange line shown in the testing segment represents the predictions constructed by an LSTM using the training and validation components of the dataset. See Clark _et al_ (2020) for more discussion. 
 
-![Untitled1](https://user-images.githubusercontent.com/2189134/153107580-120ff3e3-e2b1-47c3-9506-4853e047c2c7.png)
+![insr12432-fig-0010-m](https://user-images.githubusercontent.com/2189134/153122410-d2cb23eb-8f8e-4aad-a402-85c527b28f82.jpg)
 
 ## References and additional resources
 
