@@ -53,16 +53,16 @@ The layout of the network, such as the number of layers and the number of nodes 
 
 ```r
 model = keras_model_sequential() %>%
-  		      layer_dense(units=64,  activation="relu", input_shape=ncol(x_train)) %>%
-  		      layer_dense(units=32, activation="relu",) %>%
-    	    	layer_dense(units=1, activation="linear")
+          layer_dense(units=64,  activation="relu", input_shape=ncol(x_train)) %>%
+          layer_dense(units=32, activation="relu") %>%
+          layer_dense(units=1, activation="linear")
 ```
 
 Because neural networks tend to be very highly parameterised, it is often helpful to use some kind of regularisation to stabilize the model fitting process. Keras provides several options, including dropout or weight decay regularisation. Dropout involves the random deactivation of a small percentage of the nodes in each hidden layer during the training phase, preventing overfitting by lessening the dependence of the model on individual nodes and providing a more balanced representation of the data by the model. Weight decay, or L2, regularisation prevents overfitting through the penalisation of large weights, shrinking them according to a pre-set regularisation hyperparameter. Either regularisation method can be added during specification of the model architecture. For example, the above model with 20% dropout on each hidden layer would be set as: 
 
 ```r
 model = keras_model_sequential() %>%
-          layer_dense(units=64,  activation="relu", input_shape=ncol(x_train)) %>%
+          layer_dense(units=64, activation="relu", input_shape=ncol(x_train)) %>%
     	    layer_dropout(dropout=0.2) %>%
   	      layer_dense(units=32, activation="relu") %>%
     	    layer_dropout(dropout=0.2) %>%
@@ -80,9 +80,10 @@ model %>% compile(loss = "mse", optimizer =  "adam", metrics = list("mean_absolu
 Now the model is ready for training, which involves an iterative updating of the weights and biases until the model output matches the observed response data in the training set. The number of training epochs, batch size, data to be used for the training predictor and response variables (`x_train`, `y_train`), and validation data (`x_val`, `y_val`) are set within the `fit()` function. To reduce memory requirements and speed up training, data is input to the model in batches (or subgroups of observations) with an update of model parameters after each batch. One epoch of training is complete when the model has seen all batches that make up the dataset. 
 
 ```r
-history <- model %>% fit(x_train, y_train,
-   		      epochs = 200, batch_size = 32,
-  		      validation_data = list(x_val, y_val))
+history <- model %>% 
+  fit(x_train, y_train,
+      epochs = 200, batch_size = 32,
+      validation_data = list(x_val, y_val))
 ```
 
 In practice, it will be important to repeat the analysis over a broad range of choices of the various hyperparameters (eg. number of layers, number of nodes per layer, regularisation method, etc.) and choose the hyperparameters for use in the final model that produce the best results.
