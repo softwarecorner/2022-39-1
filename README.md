@@ -5,7 +5,7 @@ Stephanie Clark
 School of Mathematics and Physical Sciences,
 University of Technology Sydney
 
-_Editor note: This article was originally published in the [Biometric Bulletin (2022) Volume 39 Issue 1](https://www.biometricsociety.org/publications/biometric-bulletin). The example code is included in `examples.R`._
+_Editor note: This article was originally published in the [Biometric Bulletin (2022) Volume 39 Issue 1](https://www.biometricsociety.org/publications/biometric-bulletin)._
 
 There’s a lot of talk these days about big data and the power and benefits of deep learning algorithms. The increasing ability to collect and disseminate all types of data, often in real-time, is generating much larger data sets than have historically been available in many fields, leading many statistical researchers to speculate whether machine learning algorithms such as deep learning networks might be of value for efficiently analysing their particular set of data.
 
